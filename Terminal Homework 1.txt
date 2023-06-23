@@ -1,0 +1,177 @@
+Первая часть первого  ДЗ  ))
+Linux terminal (GitBash) commands
+
+1) Посмотреть где я - pwd
+/c/Users/Admin/Documents/QA Ksendzov/Terminal
+
+2) Создать папку - mkdir <folername>
+mkdir MyCats
+
+3) Зайти в папку - cd <foldername>
+cd MyCats
+
+4) Создать 3 папки - mkdir <foldername1> <foldername2> <foldername3>
+mkdir Kittens Teens Adults
+
+5) Зайти в любую папку - cd <foldername>
+cd Kittens
+
+6) Создать 5 файлов (3 txt, 2 json) - touch <name.txt> <name.json>
+touch Dar.txt Feya.txt Jin.txt Surpriz.json Tornado.json
+
+7) Создать 3 папки = пункт 4: mkdir <foldername1> <foldername2> <foldername3>
+mkdir Dogs Neighbours Family
+
+8) Вывести список содержимого папки - ls -la или ls -la <foldername>
+total 4
+drwxr-xr-x 1 Admin 197121 0 Jun 16 22:45 ./
+drwxr-xr-x 1 Admin 197121 0 Jun 15 23:28 ../
+drwxr-xr-x 1 Admin 197121 0 Jun 16 22:45 Dogs/
+drwxr-xr-x 1 Admin 197121 0 Jun 16 22:45 Family/
+drwxr-xr-x 1 Admin 197121 0 Jun 15 00:53 MyCats/
+drwxr-xr-x 1 Admin 197121 0 Jun 16 22:45 Neighbours/
+
+9) + Открыть любой txt файл - cat <foldername>/<name.txt> или показать содержимое файла - cat <foldername>/<name.txt> или cat <name.txt>
+cat > Konfeta.txt						cat Adults/Kropa.txt												
+cat > Teens/Zhuk.txt						cat Kropa.txt
+
+10) + написать туда что-нибудь, любой текст. - cat > <name.txt>
+cat > Konfeta.txt
+a) 3 years old
+b) Zhuk's sister
+
+11) + сохранить и выйти. - Ctrl + C
+
+12) Выйти из папки на уровень выше - cd ..
+~/Documents/QA Ksendzov/Terminal/MyCats/Kittens
+~/Documents/QA Ksendzov/Terminal/MyCats
+
+13) переместить любые 2 файла, которые вы создали, в любую другую папку. - mv <foldername1>/<name.txt> <foldername2/<name.txt>
+mv Teens/Milka.txt Adults/Milka.txt
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку. - cp <foldername2>/<name.txt> <foldername3>/<name.txt>
+cp MyCats/Adults/Kropa.txt Info/Kropa.txt
+
+15) Найти файл по имени - find -name <name.txt> или find -iname <name.txt>
+$ find -name Kropa.txt			$ find -iname kropa.txt
+./Adults/Kropa.txt			./Adults/Kropa.txt
+
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает. - grep -r <name>
+$ grep -r cat
+Adults/Kropa.txt:a) cat
+Adults/Milka.txt:a) cat
+Kittens/Dar.txt:a) cat
+Kittens/Feya.txt:a) cat
+Teens/Jin.txt:a) cat
+Teens/Konfeta.txt:a) cat
+Teens/Zhuk.txt:a) cat
+
+17) вывести несколько первых строк из текстового файла head <name.txt> или head -<number> <name.txt>
+$ head Zhuk.txt					$ head -4 Zhuk.txt	
+a) cat						a) cat
+b) 3 years old					b) 3 years old
+c) Konfeta's brother				c) Konfeta's brother
+d) Pantera's son				d) Pantera's son
+e) loves Felix
+f) totally black fur
+g) loves sleeping on the laps
+h) sleeps a lot
+i) loves playing with a stick
+j) doesn't eat plants
+
+18) вывести несколько последних строк из текстового файла - tail <name.txt> или tail -<number> <name.txt>
+$ tail Zhuk.txt					$ tail -3 Zhuk.txt
+l) loves "talking"				s) loves other cats
+m) loves cuddles				t) is afraid of dogs
+n) loves catching bugs :)			w) "talks" to birds
+o) yellow eyes
+p) doesn't like having a bath
+q) likes warm weather
+r) sometimes jumps on shoulders
+s) loves other cats
+t) is afraid of dogs
+w) "talks" to birds
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает. - less <name.txt>
+$ less Zhuk.txt
+a) cat
+b) 3 years old
+c) Konfeta's brother
+d) Pantera's son
+e) loves Felix
+f) totally black fur
+g) loves sleeping on the laps
+h) sleeps a lot
+i) loves playing with a stick
+j) doesn't eat plants
+k) very friendly
+l) loves "talking"
+m) loves cuddles
+n) loves catching bugs :)
+o) yellow eyes
+p) doesn't like having a bath
+q) likes warm weather
+r) sometimes jumps on shoulders
+s) loves other cats
+t) is afraid of dogs
+w) "talks" to birds
+
+20) вывести дату и время - date
+Fri Jun 16 20:30:14     2023
+
+=========
+
+Задание *
+1) Отправить http запрос на сервер. - curl <website>
+$ curl http://162.55.220.72:5006/terminal-hw-request
+{
+  "Intro": "Hello!! This is your the first response from server",
+  "Tasks": {
+    "Task_1": "Send the next URL in terminal: http://162.55.220.72:5005/get_meth
+od?name=(set_your_String)&age=(set_your_number)",
+    "result": [
+      "Your_String",
+      "Your_number"
+    ]
+  }
+}
+
+$ curl http://162.55.220.72:5005/get_method?name='Grazhina'\&age='35'
+[
+  "Grazhina",
+  "35"
+]
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+$touch MyScript.sh
+$nano MyScript.sh
+#!bin/bash
+cd Terminal
+mkdir Animals Books Food
+cd Food
+touch Deserts.txt Fruit.txt Vegs.txt Meat.json Fish.json
+mkdir EasyRecipes HardRecipes MyRecipes
+ls -la
+cd ..
+mv Food/Deserts.txt Books/Deserts.txt
+mv Food/Fruit.txt Books/Fruit.txt
+
+$ chmod +x MyScript.sh
+
+$ bash MyScript.sh
+total 8
+drwxr-xr-x 1 Admin 197121 0 Jun 19 01:36 .
+drwxr-xr-x 1 Admin 197121 0 Jun 19 01:36 ..
+-rw-r--r-- 1 Admin 197121 0 Jun 19 01:36 Deserts.txt
+drwxr-xr-x 1 Admin 197121 0 Jun 19 01:36 EasyRecipes
+-rw-r--r-- 1 Admin 197121 0 Jun 19 01:36 Fish.json
+-rw-r--r-- 1 Admin 197121 0 Jun 19 01:36 Fruit.txt
+drwxr-xr-x 1 Admin 197121 0 Jun 19 01:36 HardRecipes
+-rw-r--r-- 1 Admin 197121 0 Jun 19 01:36 Meat.json
+drwxr-xr-x 1 Admin 197121 0 Jun 19 01:36 MyRecipes
+-rw-r--r-- 1 Admin 197121 0 Jun 19 01:36 Vegs.txt
+
+
+
+
