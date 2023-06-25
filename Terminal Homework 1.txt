@@ -1,6 +1,3 @@
-Первая часть первого  ДЗ  ))
-Linux terminal (GitBash) commands
-
 1) Посмотреть где я - pwd
 /c/Users/Admin/Documents/QA Ksendzov/Terminal
 
